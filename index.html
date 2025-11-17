@@ -7,6 +7,73 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="app-container">
+      <header class="app-header">
+        <h1 class="page-title">Calculator & Estimate Tool</h1>
+        <p class="page-description">
+          Educational calculator for mathematical operations and property
+          estimates
+        </p>
+      </header>
+
+      <main class="tool-section">
+        <!-- standard calculator -->
+        <section class="calculator-section">
+          <!-- content goes here -->
+          <h2 class="calculator-title">Standard Calculator</h2>
+
+          <div class="calculator-container">
+            <div class="calculator-display">
+              <div class="previous-operand">0</div>
+              <div class="current-operand">0</div>
+            </div>
+
+            <div class="calculator-buttons">
+              <button class="btn-clear">CLR</button>
+              <button class="btn-del">Del</button>
+              <button class="btn-operator" data-opt="/">÷</button>
+
+              <button class="btn-number">7</button>
+              <button class="btn-number">8</button>
+              <button class="btn-number">9</button>
+              <button class="btn-operator" data-opt="*">×</button>
+
+              <button class="btn-number">4</button>
+              <button class="btn-number">5</button>
+              <button class="btn-number">6</button>
+              <button class="btn-operator" data-opt="-">-</button>
+
+              <button class="btn-number">1</button>
+              <button class="btn-number">2</button>
+              <button class="btn-number">3</button>
+              <button class="btn-operator" data-opt="+">+</button>
+
+              <button class="btn-number btn-zero">0</button>
+              <button class="btn-decimal">.</button>
+              <button class="btn-equals">=</button>
+            </div>
+            <!-- <p class="calculator-disclaimer">
+              Disclaimer: This calculator provides approximate results for
+              educational use only and may not reflect actual financial
+              outcomes.
+            </p> -->
+          </div>
+        </section>
+
+        <section class="estimate-section">
+          <!-- content goes here -->
+        </section>
+      </main>
+
+      <section class="cta-section">
+        <!-- call to action -->
+      </section>
+
+      <footer class="app-footer">
+        <!-- disclaimers + contact info -->
+      </footer>
+    </div>
+
     <script src="main.js" defer></script>
   </body>
 </html>
