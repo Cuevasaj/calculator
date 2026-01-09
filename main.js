@@ -57,5 +57,9 @@ btnClear.addEventListener("click", function (event) {
 
 const btnDel = document.querySelector(".btn-del");
 btnDel.addEventListener("click", function (event) {
+  console.log(currentOperand);
+  let newStr = currentOperand.textContent.slice(0, -1);
+  console.log(`this is your new string of numbers:${newStr}`);
+  currentOperand.textContent = newStr;
   console.log(`You clicked ${event.target.textContent}`);
 });
