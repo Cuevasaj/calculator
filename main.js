@@ -51,7 +51,7 @@ btnEquals.addEventListener("click", function (event) {
 
 const btnClear = document.querySelector(".btn-clear");
 btnClear.addEventListener("click", function (event) {
-  currentOperand.textContent = "";
+  currentOperand.textContent = "0";
   console.log(`You clicked ${event.target.textContent}`);
 });
 
@@ -61,5 +61,9 @@ btnDel.addEventListener("click", function (event) {
   let newStr = currentOperand.textContent.slice(0, -1);
   console.log(`this is your new string of numbers:${newStr}`);
   currentOperand.textContent = newStr;
+
+  if (newStr === "") {
+    return (currentOperand.textContent = "0");
+  }
   console.log(`You clicked ${event.target.textContent}`);
 });
