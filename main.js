@@ -28,6 +28,10 @@ const operate = (leftNum, operator, rightNum) => {
   }
 };
 
+const roundResult = (number) => {
+  return Math.round(number * 1000) / 1000;
+};
+
 const currentOperand = document.querySelector(".current-operand");
 const previousOperand = document.querySelector(".previous-operand");
 
@@ -67,7 +71,7 @@ btnEquals.addEventListener("click", function (event) {
 
   // since we have those real numbers in our function now we can add them to our function
   const result = operate(num1, currentOperator, num2);
-  currentOperand.textContent = result;
+  currentOperand.textContent = roundResult(result);
   // now we can show the result on the screen
   console.log(`You clicked: ${event.target.textContent}`);
 });
