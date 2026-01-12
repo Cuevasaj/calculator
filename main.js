@@ -1,3 +1,5 @@
+let currentOperator;
+
 const add = (num1, num2) => {
   return num1 + num2;
 };
@@ -20,13 +22,14 @@ const operate = (leftNum, operator, rightNum) => {
   } else if (operator === "-") {
     return subtract(leftNum, rightNum);
   } else if (operator === "*") {
-    multiply(leftNum, rightNum);
+    return multiply(leftNum, rightNum);
   } else if (operator === "/") {
     return divide(leftNum, rightNum);
   }
 };
 
 const currentOperand = document.querySelector(".current-operand");
+const previousOperand = document.querySelector(".previous-operand");
 
 const numBtn = document.querySelectorAll(".btn-number");
 numBtn.forEach((button) => {
@@ -39,6 +42,10 @@ numBtn.forEach((button) => {
 const btnOperator = document.querySelectorAll(".btn-operator");
 btnOperator.forEach((button) => {
   button.addEventListener("click", function (event) {
+    previousOperand.textContent = currentOperand.textContent;
+    currentOperator = event.target.dataset.opt;
+    currentOperand.textContent = "";
+    console.log(typeof currentOperator);
     console.log(`You clicked Operator: ${event.target.textContent}`);
   });
 });
@@ -46,6 +53,14 @@ btnOperator.forEach((button) => {
 const btnEquals = document.querySelector(".btn-equals");
 console.log(btnEquals);
 btnEquals.addEventListener("click", function (event) {
+  // were getting the text content of whats in previous amd current operand and turning it from string to number
+  const num1 = parseFloat(previousOperand.textContent);
+  const num2 = parseFloat(currentOperand.textContent);
+
+  // since we have those real numbers in our function now we can add them to our function
+  const result = operate(num1, currentOperator, num2);
+  currentOperand.textContent = result;
+  // now we can show the result on the screen
   console.log(`You clicked: ${event.target.textContent}`);
 });
 
@@ -63,7 +78,8 @@ btnDel.addEventListener("click", function (event) {
   currentOperand.textContent = newStr;
 
   if (newStr === "") {
-    return (currentOperand.textContent = "0");
+    return (currentOperand.textContent = "");
   }
+
   console.log(`You clicked ${event.target.textContent}`);
 });
