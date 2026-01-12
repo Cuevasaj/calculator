@@ -50,6 +50,14 @@ btnOperator.forEach((button) => {
   });
 });
 
+const btnDecimal = document.querySelector(".btn-decimal");
+btnDecimal.addEventListener("click", function (event) {
+  if (currentOperand.textContent.includes(".")) {
+    return console.log("You already have a . in your number");
+  }
+  currentOperand.textContent += event.target.textContent;
+});
+
 const btnEquals = document.querySelector(".btn-equals");
 console.log(btnEquals);
 btnEquals.addEventListener("click", function (event) {
