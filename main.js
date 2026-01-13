@@ -137,3 +137,35 @@ btnDel.addEventListener("click", function (event) {
 
   console.log(`You clicked ${event.target.textContent}`);
 });
+
+window.addEventListener("keydown", function (e) {
+  console.log(e);
+  const KeyedDigit = e.key;
+  console.log(`you clicked ${KeyedDigit}`);
+
+  btnOperator.forEach((button) => {
+    if (button.dataset.opt === KeyedDigit) {
+      button.click();
+    }
+  });
+  numBtn.forEach((button) => {
+    if (button.textContent === KeyedDigit) {
+      button.click();
+    }
+  });
+  if (e.key === "Enter" || e.key === "=") {
+    btnEquals.click();
+  }
+
+  if (e.key === "Backspace") {
+    btnDel.click();
+  }
+
+  if (e.key === "Escape") {
+    btnClear.click();
+  }
+
+  if (e.key === ".") {
+    btnDecimal.click();
+  }
+});
